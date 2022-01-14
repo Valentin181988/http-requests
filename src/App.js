@@ -1,8 +1,11 @@
 
 import React, { Component } from "react";
 import './App.css';
-
+import { Toaster } from 'react-hot-toast';
 import { PokemonForm } from './components/PokemonForm';
+import { PokemonInfo } from './components/PokemonInfo';
+
+
 
 class App extends Component {
   state = {
@@ -16,7 +19,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <PokemonForm onSubmit={this.handleFormSubmit}/>
+        <PokemonForm onSubmit={this.handleFormSubmit} />
+        <PokemonInfo pokemonName={this.state.pokemonName}/>
+        <Toaster />
       </div>
     );
   };

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import toast from 'react-hot-toast';
 export class PokemonForm extends Component {
     state = {
         pokemonName: '',
@@ -11,9 +11,13 @@ export class PokemonForm extends Component {
 
     handleSubmit = event => {
        event.preventDefault();
+       
+       if (this.state.pokemonName.trim() === '') {
+           toast.error('Please enter the name!');
+           return;
+       };
 
        this.props.onSubmit(this.state.pokemonName)
-
        this.setState({ pokemonName: ''});
     };
 
